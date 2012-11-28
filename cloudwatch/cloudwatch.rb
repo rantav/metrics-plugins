@@ -39,7 +39,7 @@ apikey = nil
 @apihost = nil
 @debug = nil
 @freq = 60  # update frequency in seconds
-@interupted = false
+@interrupted = false
 
 # Options and examples:
 opts.each do |opt, arg|
@@ -106,7 +106,7 @@ def monitor_aws(apikey)
 
   rm = CopperEgg::Metrics.new(apikey, @apihost)
 
-  while !@interupted do
+  while !@interrupted do
     return if @interrupted
 
     m = AWS::CloudWatch::Metric.new("AWS/ELB", "RequestCount")
